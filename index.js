@@ -1,9 +1,11 @@
-// TODO: Include packages needed for this application
+// imports inquirer, fs (from Node.js), and generateMarkdown(my script)
 import inquirer from 'inquirer';
 import generateMarkdown from './utils/generateMarkdown.js';
 import fs from 'fs';
 
-// TODO: Create an array of questions for user input
+/**
+ * Array of questions formatted for inquirer
+ */
 const questions = [
     {
         type: 'input',
@@ -59,8 +61,13 @@ const questions = [
     },
 ];
 
-// TODO: Create a function to write README file
-const writeToFile = (fileName = `README.md`, data) => {
+
+/**
+ * Given a file name and data, creates a new file in the /output/ directory with the text(data)
+ * @param {*} data Data to be written to file
+ * @param {string} fileName Name of file, defaults to 'README.md'
+ */
+const writeToFile = (data, fileName = `README.md`) => {
     fs.writeFile(`./output/${fileName}`, data, err => {
         if (err) {
           console.error(err)
@@ -69,11 +76,13 @@ const writeToFile = (fileName = `README.md`, data) => {
     console.log('file written')
 }
 
-// TODO: Create a function to initialize app
-function init() {
+/**
+ * Starts the prompts
+ */
+const init =()=> {
     inquirer
     .prompt(questions)
-    .then(answers => writeToFile(`README.md`, generateMarkdown(answers)))
+    .then(answers => writeToFile(generateMarkdown(answers)))
     .catch(error => console.error(error))
 }
 

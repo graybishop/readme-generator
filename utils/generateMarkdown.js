@@ -29,7 +29,7 @@ const renderLicenseSection = (license) => {
 
 ${renderLicenseContent(license)}
 
-Click on badge to read about license.`   
+Click on the badge to read about the license.`   
  }
  }
 
