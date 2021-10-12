@@ -1,5 +1,8 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+/**
+ * Given a license name, returns a string with the badge image and embedded link
+ * @param {'MIT' | 'GNU' | 'CC0' | 'MPL'} license 
+ * @returns MD formatted image with link
+ */
 const renderLicenseContent = (license) => {
   switch (license) {
     case `MIT`:
@@ -13,6 +16,11 @@ const renderLicenseContent = (license) => {
   }
  }
 
+ /**
+  * Given a license name, returns the correct license section for the README
+  * @param { 'MIT' | 'GNU' | 'CC0' | 'MPL' | 'None'} license The name of the license as a string
+  * @returns Either an empty string when 'None' is passed to it or the license section of the readme.
+  */
 const renderLicenseSection = (license) => {
   if (license == 'None') {
     return ``
@@ -25,8 +33,13 @@ Click on badge to read about license.`
  }
  }
 
-
+/**
+ * Generates body text of the readme by reading the answers passed to it. 
+ * @param {*} data Answer object returned from inquirer prompts
+ * @returns Body text of the README as a string
+ */
 const generateMarkdown = (data) => {
+  //ternary next to contribution adds license to table of contents, only if there is one.
   return `
 # ${data.title}
 
