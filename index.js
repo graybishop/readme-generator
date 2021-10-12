@@ -63,7 +63,7 @@ const questions = [
 
 
 /**
- * Given a file name and data, creates a new file in the /output/ directory with the text(data)
+ * Given a file name and data, creates a new file in the ./output/ directory with the text(data)
  * @param {*} data Data to be written to file
  * @param {string} fileName Name of file, defaults to 'README.md'
  */

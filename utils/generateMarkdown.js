@@ -3,7 +3,7 @@
  * @param {'MIT' | 'GNU' | 'CC0' | 'MPL'} license 
  * @returns MD formatted image with link
  */
-const renderLicenseContent = (license) => {
+const renderLicenseBadge = (license) => {
   switch (license) {
     case `MIT`:
       return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`    
@@ -16,6 +16,24 @@ const renderLicenseContent = (license) => {
   }
  }
 
+/**
+ * Given a license name, returns a string with the badge image and embedded link
+ * @param {'MIT' | 'GNU' | 'CC0' | 'MPL'} license 
+ * @returns MD formatted image with link
+ */
+const renderLicenseText = (license) => {
+  switch (license) {
+    case `MIT`:
+      return `[The MIT License](https://opensource.org/licenses/MIT)`    
+    case `GNU`:
+      return `[GNU GENERAL PUBLIC LICENSE v3](https://www.gnu.org/licenses/gpl-3.0)`    
+    case `CC0`:
+      return `[CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](http://creativecommons.org/publicdomain/zero/1.0/)`    
+    case `MPL`:
+      return `[Mozilla Public License 2.0](https://opensource.org/licenses/MPL-2.0)`
+  }
+ }
+
  /**
   * Given a license name, returns the correct license section for the README
   * @param { 'MIT' | 'GNU' | 'CC0' | 'MPL' | 'None'} license The name of the license as a string
@@ -25,11 +43,12 @@ const renderLicenseSection = (license) => {
   if (license == 'None') {
     return ``
   } else{
-    return`## License
+    return`
+## License
 
-${renderLicenseContent(license)}
+${renderLicenseText(license)}
 
-Click on the badge to read about the license.`   
+`   
  }
  }
 
@@ -42,7 +61,9 @@ const generateMarkdown = (data) => {
   //ternary next to contribution adds license to table of contents, only if there is one.
   return `
 # ${data.title}
-
+${data.license == 'None'? '' : `
+${renderLicenseBadge(data.license)}
+`}
 ## Table of Contents
 
 - [Description](#description)
@@ -71,9 +92,7 @@ ${data.contribution}
 ## Testing
 
 ${data.testing}
-  
 ${renderLicenseSection(data.license)}
-
 ## Questions?
 
 Contact me on GitHub:
