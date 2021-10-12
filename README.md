@@ -26,6 +26,8 @@ Run ```node index.js``` in your terminal and follow the prompts.
 
 ## Video Example
 
+https://user-images.githubusercontent.com/8904427/136886731-5beaccc3-ce4c-42cc-bdd1-99cffff2f3e4.mp4
+
 ## Features
 
 ### Table of Contents
