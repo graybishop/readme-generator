@@ -13,11 +13,11 @@
 
 ## Description
 
-CLI that generates a README for your project. This tool runs in your terminal and generates a README for your next project. Utilizing inquirer, this tool prompts the user for their project information (Title, Description, Installation, Usage, License, How to Contribute, How to Test, and How to submit Questions), and creates a README.md file they can use in their repo. 
+CLI that generates a README for your project. This tool runs in your terminal and generates a README for your next project. Utilizing inquirer, this tool prompts the user for their project information (Title, Description, Installation, Usage, License, How to Contribute, How to Test, and How to submit Questions), and creates a README.md file they can use in their repo.
   
 ## Installation
 
-gsfsdfgsfdg
+Clone the repo and run ```npm init```
 
 ## Usage
 
