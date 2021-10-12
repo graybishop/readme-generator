@@ -64,18 +64,18 @@ const generateMarkdown = (data) => {
 ${data.license == 'None'? '' : `
 ${renderLicenseBadge(data.license)}
 `}
+## Description
+
+${data.description}
+
 ## Table of Contents
 
-- [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contribution](#contribution)${data.license == 'None'? '' : '\n- [License](#license)'}
 - [Testing](#testing)
 - [Questions?](#questions)
 
-## Description
-
-${data.description}
   
 ## Installation
 
